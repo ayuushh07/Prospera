@@ -14,9 +14,6 @@ A portfolio demo for a paper trading app. This version runs fully in the browser
 ## Run locally
 Open `index.html` in your browser.
 
-## Deploy on Netlify
-Drag this `prospera` folder to Netlify Drop, or zip the folder and upload it.
-
 ## Future full-stack upgrade
 Use `schema.sql` and `api-contract.md` to convert this into a real React + Node/Express + PostgreSQL/Supabase project.
 https://prosperaa.netlify.app/
