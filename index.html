@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prospera | Paper Trading Simulator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Prospera</p>
+        <h1>Paper Trading Simulator</h1>
+        <p class="subtitle">Search stocks, build a watchlist, simulate trades, and track portfolio performance.</p>
+      </div>
+      <div class="account-card">
+        <span>Cash Balance</span>
+        <strong id="cashBalance">$0.00</strong>
+        <button id="resetBtn" class="ghost">Reset Demo</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel hero-panel">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Market Search</p>
+            <h2>Find a stock</h2>
+          </div>
+          <input id="stockSearch" type="search" placeholder="Search symbol or company..." />
+        </div>
+        <div id="stockResults" class="stock-grid"></div>
+      </section>
+
+      <section class="panel chart-panel">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Selected Stock</p>
+            <h2 id="selectedName">Apple Inc.</h2>
+          </div>
+          <button id="watchlistBtn">Add to Watchlist</button>
+        </div>
+        <div class="quote-row">
+          <div><span>Symbol</span><strong id="selectedSymbol">AAPL</strong></div>
+          <div><span>Price</span><strong id="selectedPrice">$0.00</strong></div>
+          <div><span>Change</span><strong id="selectedChange">0.00%</strong></div>
+        </div>
+        <svg id="priceChart" viewBox="0 0 600 220" role="img" aria-label="Stock price chart"></svg>
+      </section>
+
+      <section class="panel order-panel">
+        <p class="eyebrow">Trade Ticket</p>
+        <h2>Simulate Buy / Sell</h2>
+        <form id="tradeForm">
+          <label>
+            Order Type
+            <select id="orderType">
+              <option value="buy">Buy</option>
+              <option value="sell">Sell</option>
+            </select>
+          </label>
+          <label>
+            Shares
+            <input id="sharesInput" type="number" min="1" step="1" value="1" />
+          </label>
+          <button type="submit">Submit Order</button>
+          <p id="orderMessage" class="message"></p>
+        </form>
+      </section>
+
+      <section class="panel">
+        <p class="eyebrow">Portfolio</p>
+        <h2>Holdings</h2>
+        <div id="holdingsList" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <p class="eyebrow">Watchlist</p>
+        <h2>Saved Symbols</h2>
+        <div id="watchlist" class="pill-list"></div>
+      </section>
+
+      <section class="panel wide">
+        <p class="eyebrow">Audit Trail</p>
+        <h2>Transaction History</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Type</th><th>Symbol</th><th>Shares</th><th>Price</th><th>Total</th></tr>
+            </thead>
+            <tbody id="transactionsTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
